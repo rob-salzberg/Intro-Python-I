@@ -19,11 +19,11 @@ and does the following:
    Then exit the program.
 """
 
+from datetime import datetime
+import calendar
+import sys
 err = print("Month and year must be entered in the format: mm [yyyy]")
 
-import sys
-import calendar
-from datetime import datetime
 
 if len(sys.argv) == 1:
     m = datetime.now().month
