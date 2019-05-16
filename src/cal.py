@@ -19,6 +19,30 @@ and does the following:
    Then exit the program.
 """
 
-import sys
-import calendar
 from datetime import datetime
+import calendar
+import sys
+err = print("Month and year must be entered in the format: mm [yyyy]")
+
+
+if len(sys.argv) == 1:
+    m = datetime.now().month
+    y = datetime.now().year
+elif len(sys.argv) == 2:
+    if sys.argv[1].isdigit() and len(sys.argv[1]) == 2 and int(sys.argv[1]) < 13:
+        m = sys.argv[1]
+        y = datetime.now().year
+    else:
+        err
+        exit()
+elif len(sys.argv) == 3:
+    if sys.argv[1].isdigit() and len(sys.argv[1]) == 2 and int(sys.argv[1]) <= 12 and sys.argv[2][1:5].isdigit() and len(sys.argv[2]) == 6:
+        (m) = sys.argv[1]
+        (y) = sys.argv[2][1:5]
+    else:
+        err
+        exit()
+else:
+    err
+    exit()
+print(calendar.month(int(y), int(m)))
